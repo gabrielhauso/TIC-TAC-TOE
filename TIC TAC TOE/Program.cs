@@ -13,34 +13,31 @@ namespace TIC_TAC_TOE
 
             Console.Clear();
 
-           
 
-            SpelRitning();
-
-
-
-        }
-
-        public static void SpelRitning()
-        {
 
 
             string[] board = new string[9] { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
             bool player1 = true;
-            
+
+
+
+
 
             while (true)
             {
+
 
                 if (player1)
                 {
                     Console.WriteLine("player 1 (X) tur");
                 }
-                else 
+                else
                 {
                     Console.WriteLine("player 2 (O) tur");
                 }
+
+                SpelRitning();
 
 
                 string välj = Console.ReadLine();
@@ -75,25 +72,18 @@ namespace TIC_TAC_TOE
                 {
                     player1 = true;
                 }
+
+            }
+
+            void SpelRitning()
+            {
+
                 Console.WriteLine($"|  {board[0]}  |  {board[1]}  |  {board[2]} |");
                 Console.WriteLine("|----------------|");
                 Console.WriteLine($"|  {board[3]}  |  {board[4]}  |  {board[5]} |");
                 Console.WriteLine("|----------------|");
                 Console.WriteLine($"|  {board[6]}  |  {board[7]}  |  {board[8]} |");
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
