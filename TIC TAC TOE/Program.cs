@@ -19,22 +19,22 @@ namespace TIC_TAC_TOE
             string[] board = new string[9] { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
             bool player1 = true;
+            int nummer = 0;
+
+            
 
 
-
-
-
-            while (true)
+            while (!KollaVinnare() && nummer != 9)
             {
-
+                
 
                 if (player1)
                 {
-                    Console.WriteLine("player 1 (X) tur");
+                    Console.WriteLine("player 1 (X) turn");
                 }
                 else
                 {
-                    Console.WriteLine("player 2 (O) tur");
+                    Console.WriteLine("player 2 (O) turn");
                 }
 
                 SpelRitning();
@@ -73,7 +73,20 @@ namespace TIC_TAC_TOE
                     player1 = true;
                 }
 
+                
+
+
             }
+
+            SpelRitning();
+
+            if (KollaVinnare())
+                Console.WriteLine("DU Vann");
+            else
+            {
+                Console.WriteLine("Ingen har vunnit än");
+            }
+
 
             void SpelRitning()
             {
@@ -85,11 +98,31 @@ namespace TIC_TAC_TOE
                 Console.WriteLine($"|  {board[6]}  |  {board[7]}  |  {board[8]} |");
             }
 
+            bool KollaVinnare()
+            {
+                bool rad1 = board[0] == board[1] && board[1] == board[2];
+                bool rad2 = board[3] == board[4] && board[4] == board[5];
+                bool rad3 = board[6] == board[7] && board[7] == board[8];
 
+                bool nerrad1 = board[0] == board[3] && board[3] == board[4];
+                bool nerrad2 = board[1] == board[4] && board[4] == board[7];
+                bool nerrad3 = board[2] == board[5] && board[5] == board[8];
 
+                bool digonalt1 = board[0] == board[4] && board[4] == board[8];
+                bool digonalt2 = board[2] == board[4] && board[4] == board[6];
+
+                if (rad1 || rad2 || rad3 || nerrad1 || nerrad2 || nerrad3 || digonalt1 || digonalt2)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+            }
+          
         }
-
-
 
     }
 }
